@@ -28,6 +28,8 @@ import CheckoutSuccess from "@/pages/checkout-success";
 import ShippingInfo from "@/pages/shipping-info";
 import OrderTracking from "@/pages/order-tracking";
 import AvisoPrivacidad from "@/pages/aviso-privacidad";
+import Conocenos from "@/pages/Conocenos";
+import Servicios from "@/pages/Servicios";
 
 // Admin pages
 import AdminDashboard from "@/pages/admin/dashboard";
@@ -87,6 +89,8 @@ function Router() {
       <Route path="/checkout/success" component={CheckoutSuccess} />
       <Route path="/track-order" component={OrderTracking} />
       <Route path="/aviso-privacidad" component={AvisoPrivacidad} />
+      <Route path="/conocenos" component={Conocenos} />
+      <Route path="/servicios" component={Servicios} />
       
       {/* Admin routes */}
       <Route path="/admin" component={AdminDashboard} />

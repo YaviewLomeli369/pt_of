@@ -4,9 +4,13 @@ import { useLocation } from "wouter";
 export default function WhatsAppWidget() {
   const [location] = useLocation();
   
-  // ✅ Solo cambiar aquí el número y el mensaje
+  // ✅ Solo cambiar aquí el número y el mensaje 
+  // EDTX CAMBIO WHATSAPP Y MENSAJE
   const WHATSAPP_NUMBER = "5215525114175"; // formato internacional sin "+"
-  const DEFAULT_MESSAGE = "Hola, quiero más información.";
+  const DEFAULT_MESSAGE = (
+      `Hola 👋, estoy interesado en conocer más sobre sus servicios de desarrollo de sitios web. 
+    Me gustaría recibir información sobre planes, precios y cómo podemos comenzar. ¡Gracias!`
+    );
 
   // No mostrar el widget en páginas de administración o auth
   const shouldHide = location.startsWith('/admin') || 

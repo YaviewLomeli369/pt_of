@@ -49,6 +49,8 @@ export function Navbar() {
     { href: "/store", label: "Tienda", moduleKey: "tienda" },
     { href: "/blog", label: "Blog", moduleKey: "blog" },
     { href: "/reservations", label: "Reservas", moduleKey: "reservas" },
+    { href: "/conocenos", label: "Conócenos", always: true },
+    { href: "/servicios", label: "Servicios", always: true }
   ].filter(item => item.always || (item.moduleKey && modules[item.moduleKey]?.activo));
 
   return (
