@@ -11,6 +11,7 @@ export default function WhatsAppWidget() {
       `Hola 👋, estoy interesado en conocer más sobre sus servicios de desarrollo de sitios web. 
     Me gustaría recibir información sobre planes, precios y cómo podemos comenzar. ¡Gracias!`
     );
+  
 
   // No mostrar el widget en páginas de administración o auth
   const shouldHide = location.startsWith('/admin') || 
