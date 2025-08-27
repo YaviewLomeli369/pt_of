@@ -137,7 +137,7 @@ cd "$PROJECT_DIR" || exit 1 # Exit if cd fails
 log "info" "📝 Creating .env file..."
 cat > .env << EOF
 NODE_ENV=production
-PORT=3000
+PORT=$PORT
 STORAGE_TYPE=$STORAGE_TYPE
 SITE_NAME=$PROJECT_NAME
 EOF
@@ -173,8 +173,8 @@ services:
     environment:
       - NODE_ENV=production
       - PORT=3000
-      - STORAGE_TYPE=$STORAGE_TYPE
-      - SITE_NAME=$PROJECT_NAME
+      - STORAGE_TYPE=${STORAGE_TYPE}
+      - SITE_NAME=${PROJECT_NAME}
 EOF
 
 if [ "$STORAGE_TYPE" = "database" ]; then
@@ -185,8 +185,6 @@ EOF
 fi
 
 cat >> docker-compose.yml << EOF
-    env_file:
-      - .env
     extra_hosts:
       - "host.docker.internal:host-gateway"
     healthcheck:
