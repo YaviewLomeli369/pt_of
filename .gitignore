@@ -8,3 +8,4 @@ server/public
 attached-assets/
 id_ed25519.pub
 deploy-project.sh
+git_conf.sh
