@@ -24,6 +24,7 @@ export default function WhatsAppWidget() {
     return null;
   }
 
+  
   const waLink = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
     DEFAULT_MESSAGE
   )}`;
