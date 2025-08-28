@@ -19,12 +19,11 @@ export default function AnimatedSection({
       transition={{ 
         duration: 0.6, 
         ease: "easeOut",
-        delay: delay 
+        delay: delay
       }}
       viewport={{ 
-        once: true, 
-        amount: 0.1,
-        margin: "0px 0px -100px 0px"
+        once: true,
+        amount: 0.1  // dispara cuando 10% del elemento está visible
       }}
       className={className}
     >

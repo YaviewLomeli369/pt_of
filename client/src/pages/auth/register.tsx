@@ -12,6 +12,7 @@ import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Link } from "wouter";
 import { useToast } from "@/hooks/use-toast";
 import { Home } from "lucide-react";
+import AnimatedSection from "@/components/AnimatedSection";
 
 export default function Register() {
   const [username, setUsername] = useState("");
@@ -81,6 +82,7 @@ export default function Register() {
   };
 
   return (
+    
     <div className="min-h-screen bg-background">
       <SEOHead title="Crear Cuenta - Sistema Modular" />
       <Navbar />
@@ -97,123 +99,126 @@ export default function Register() {
             </Link>
           </div>
           
-          <Card className="w-full">
-            <CardHeader className="space-y-1">
-              <CardTitle className="text-2xl text-center">Crear Cuenta</CardTitle>
-              <CardDescription className="text-center">
-                Regístrate para acceder a todas las funcionalidades
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-          <form onSubmit={handleSubmit} className="space-y-4">
-            <div className="space-y-2">
-              <Label htmlFor="username">Usuario</Label>
-              <Input
-                id="username"
-                type="text"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
-                required
-                placeholder="Elige un nombre de usuario"
-              />
-            </div>
-            
-            <div className="space-y-2">
-              <Label htmlFor="email">Email</Label>
-              <Input
-                id="email"
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-                placeholder="tu@email.com"
-              />
-            </div>
-            
-            <div className="space-y-2">
-              <Label htmlFor="password">Contraseña</Label>
-              <Input
-                id="password"
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                required
-                placeholder="Crea una contraseña segura"
-              />
-              {password && (
-                <div className="text-xs space-y-1 p-2 bg-muted rounded-md">
-                  <p className="font-medium text-muted-foreground">Requisitos de contraseña:</p>
-                  <div className="grid grid-cols-1 gap-1">
-                    <div className={`flex items-center gap-1 ${passwordValidation.minLength ? 'text-green-600' : 'text-red-500'}`}>
-                      <span>{passwordValidation.minLength ? '✓' : '✗'}</span>
-                      <span>Mínimo 8 caracteres</span>
-                    </div>
-                    <div className={`flex items-center gap-1 ${passwordValidation.hasUpper ? 'text-green-600' : 'text-red-500'}`}>
-                      <span>{passwordValidation.hasUpper ? '✓' : '✗'}</span>
-                      <span>Una mayúscula (A-Z)</span>
-                    </div>
-                    <div className={`flex items-center gap-1 ${passwordValidation.hasLower ? 'text-green-600' : 'text-red-500'}`}>
-                      <span>{passwordValidation.hasLower ? '✓' : '✗'}</span>
-                      <span>Una minúscula (a-z)</span>
-                    </div>
-                    <div className={`flex items-center gap-1 ${passwordValidation.hasNumber ? 'text-green-600' : 'text-red-500'}`}>
-                      <span>{passwordValidation.hasNumber ? '✓' : '✗'}</span>
-                      <span>Un número (0-9)</span>
-                    </div>
-                    <div className={`flex items-center gap-1 ${passwordValidation.hasSymbol ? 'text-green-600' : 'text-red-500'}`}>
-                      <span>{passwordValidation.hasSymbol ? '✓' : '✗'}</span>
-                      <span>Un símbolo (@$!%*?&)</span>
+          <AnimatedSection>
+            <Card className="w-full">
+              <CardHeader className="space-y-1">
+                <CardTitle className="text-2xl text-center">Crear Cuenta</CardTitle>
+                <CardDescription className="text-center">
+                  Regístrate para acceder a todas las funcionalidades
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <div className="space-y-2">
+                <Label htmlFor="username">Usuario</Label>
+                <Input
+                  id="username"
+                  type="text"
+                  value={username}
+                  onChange={(e) => setUsername(e.target.value)}
+                  required
+                  placeholder="Elige un nombre de usuario"
+                />
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="email">Email</Label>
+                <Input
+                  id="email"
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                  placeholder="tu@email.com"
+                />
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="password">Contraseña</Label>
+                <Input
+                  id="password"
+                  type="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
+                  placeholder="Crea una contraseña segura"
+                />
+                {password && (
+                  <div className="text-xs space-y-1 p-2 bg-muted rounded-md">
+                    <p className="font-medium text-muted-foreground">Requisitos de contraseña:</p>
+                    <div className="grid grid-cols-1 gap-1">
+                      <div className={`flex items-center gap-1 ${passwordValidation.minLength ? 'text-green-600' : 'text-red-500'}`}>
+                        <span>{passwordValidation.minLength ? '✓' : '✗'}</span>
+                        <span>Mínimo 8 caracteres</span>
+                      </div>
+                      <div className={`flex items-center gap-1 ${passwordValidation.hasUpper ? 'text-green-600' : 'text-red-500'}`}>
+                        <span>{passwordValidation.hasUpper ? '✓' : '✗'}</span>
+                        <span>Una mayúscula (A-Z)</span>
+                      </div>
+                      <div className={`flex items-center gap-1 ${passwordValidation.hasLower ? 'text-green-600' : 'text-red-500'}`}>
+                        <span>{passwordValidation.hasLower ? '✓' : '✗'}</span>
+                        <span>Una minúscula (a-z)</span>
+                      </div>
+                      <div className={`flex items-center gap-1 ${passwordValidation.hasNumber ? 'text-green-600' : 'text-red-500'}`}>
+                        <span>{passwordValidation.hasNumber ? '✓' : '✗'}</span>
+                        <span>Un número (0-9)</span>
+                      </div>
+                      <div className={`flex items-center gap-1 ${passwordValidation.hasSymbol ? 'text-green-600' : 'text-red-500'}`}>
+                        <span>{passwordValidation.hasSymbol ? '✓' : '✗'}</span>
+                        <span>Un símbolo (@$!%*?&)</span>
+                      </div>
                     </div>
                   </div>
-                </div>
+                )}
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="confirmPassword">Confirmar Contraseña</Label>
+                <Input
+                  id="confirmPassword"
+                  type="password"
+                  value={confirmPassword}
+                  onChange={(e) => setConfirmPassword(e.target.value)}
+                  required
+                  placeholder="Repite tu contraseña"
+                />
+              </div>
+
+              {registerError && (
+                <Alert variant="destructive">
+                  <AlertDescription>
+                    {registerError.message || "Error al crear la cuenta"}
+                  </AlertDescription>
+                </Alert>
               )}
+
+              <Button
+                type="submit"
+                className="w-full"
+                disabled={isRegisterLoading}
+              >
+                {isRegisterLoading ? "Creando cuenta..." : "Crear Cuenta"}
+              </Button>
+            </form>
+
+            <div className="mt-6 text-center">
+              <p className="text-sm text-gray-600">
+                ¿Ya tienes una cuenta?{" "}
+                <Link href="/login" className="text-primary hover:underline">
+                  Inicia sesión aquí
+                </Link>
+              </p>
             </div>
-            
-            <div className="space-y-2">
-              <Label htmlFor="confirmPassword">Confirmar Contraseña</Label>
-              <Input
-                id="confirmPassword"
-                type="password"
-                value={confirmPassword}
-                onChange={(e) => setConfirmPassword(e.target.value)}
-                required
-                placeholder="Repite tu contraseña"
-              />
-            </div>
 
-            {registerError && (
-              <Alert variant="destructive">
-                <AlertDescription>
-                  {registerError.message || "Error al crear la cuenta"}
-                </AlertDescription>
-              </Alert>
-            )}
-
-            <Button
-              type="submit"
-              className="w-full"
-              disabled={isRegisterLoading}
-            >
-              {isRegisterLoading ? "Creando cuenta..." : "Crear Cuenta"}
-            </Button>
-          </form>
-
-          <div className="mt-6 text-center">
-            <p className="text-sm text-gray-600">
-              ¿Ya tienes una cuenta?{" "}
-              <Link href="/login" className="text-primary hover:underline">
-                Inicia sesión aquí
+            <div className="mt-4 text-center">
+              <Link href="/" className="text-sm text-gray-500 hover:underline">
+                Volver al inicio
               </Link>
-            </p>
-          </div>
-
-          <div className="mt-4 text-center">
-            <Link href="/" className="text-sm text-gray-500 hover:underline">
-              Volver al inicio
-            </Link>
-          </div>
-            </CardContent>
-          </Card>
+            </div>
+              </CardContent>
+            </Card>
+          </AnimatedSection>
+          
         </div>
       </div>
       

@@ -71,58 +71,60 @@ const PlanCard = ({ plan }: { plan: typeof plans[0] }) => {
   const oldPrice = priceValue ? `${(priceValue * 1.15).toLocaleString()} MXN` : null;
 
   return (
-    <div
-      className={`relative rounded-2xl shadow-xl p-8 flex flex-col transform transition duration-300 hover:scale-105 ${
-        plan.highlight
-          ? "bg-white border-2 border-blue-600 shadow-blue-100"
-          : "bg-white border border-gray-200"
-      }`}
-    >
-      {plan.highlight && (
-        <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-          <span className="flex items-center gap-1 bg-blue-600 text-white px-4 py-1 rounded-full text-sm font-medium shadow-md">
-            <Star className="h-4 w-4" /> Más vendido
-          </span>
-        </div>
-      )}
-
-      <h3 className="text-2xl font-bold mb-2 text-gray-800 text-center">{plan.name}</h3>
-      <p className="text-gray-500 mb-4 text-center">{plan.description}</p>
-
-      <div className="text-center mb-6">
-        {oldPrice && (
-          <span className="text-gray-400 line-through mr-2 text-lg">{oldPrice}</span>
-        )}
-        <span className="text-4xl font-extrabold text-blue-600">{plan.price}</span>
-      </div>
-
-      <ul className="space-y-3 flex-1">
-        {plan.features.map((feature, i) => (
-          <li key={i} className="flex items-start">
-            <Check className="h-5 w-5 text-green-500 mr-2 flex-shrink-0" />
-            <span className="text-gray-700">{feature}</span>
-          </li>
-        ))}
-      </ul>
-
-      {/* Mensaje de marketing profesional opcional */}
-      <p className="mt-4 text-sm text-gray-500 text-center">
-        Todos nuestros planes incluyen soporte prioritario y actualizaciones continuas.
-      </p>
-
-      <a
-        href={whatsappLink}
-        target="_blank"
-        rel="noopener noreferrer"
-        className={`mt-6 w-full py-3 px-4 rounded-xl font-semibold text-center transition duration-300 ${
+    <AnimatedSection>
+      <div
+        className={`relative rounded-2xl shadow-xl p-8 flex flex-col transform transition duration-300 hover:scale-105 ${
           plan.highlight
-            ? "bg-green-600 text-white hover:bg-green-700 shadow-md"
-            : "bg-green-100 text-green-700 hover:bg-green-200"
+            ? "bg-white border-2 border-blue-600 shadow-blue-100"
+            : "bg-white border border-gray-200"
         }`}
       >
-        Solicitar más información
-      </a>
-    </div>
+        {plan.highlight && (
+          <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
+            <span className="flex items-center gap-1 bg-blue-600 text-white px-4 py-1 rounded-full text-sm font-medium shadow-md">
+              <Star className="h-4 w-4" /> Más vendido
+            </span>
+          </div>
+        )}
+  
+        <h3 className="text-2xl font-bold mb-2 text-gray-800 text-center">{plan.name}</h3>
+        <p className="text-gray-500 mb-4 text-center">{plan.description}</p>
+  
+        <div className="text-center mb-6">
+          {oldPrice && (
+            <span className="text-gray-400 line-through mr-2 text-lg">{oldPrice}</span>
+          )}
+          <span className="text-4xl font-extrabold text-blue-600">{plan.price}</span>
+        </div>
+  
+        <ul className="space-y-3 flex-1">
+          {plan.features.map((feature, i) => (
+            <li key={i} className="flex items-start">
+              <Check className="h-5 w-5 text-green-500 mr-2 flex-shrink-0" />
+              <span className="text-gray-700">{feature}</span>
+            </li>
+          ))}
+        </ul>
+  
+        {/* Mensaje de marketing profesional opcional */}
+        <p className="mt-4 text-sm text-gray-500 text-center">
+          Todos nuestros planes incluyen soporte prioritario y actualizaciones continuas.
+        </p>
+  
+        <a
+          href={whatsappLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={`mt-6 w-full py-3 px-4 rounded-xl font-semibold text-center transition duration-300 ${
+            plan.highlight
+              ? "bg-green-600 text-white hover:bg-green-700 shadow-md"
+              : "bg-green-100 text-green-700 hover:bg-green-200"
+          }`}
+        >
+          Solicitar más información
+        </a>
+      </div>
+    </AnimatedSection>
   );
 };
 
